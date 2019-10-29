@@ -4,12 +4,7 @@ Laurent Gatto, Johannes Rainer, Sebastian Gibb<sup>1</sup>
 
 ## Title
 
-a) Storage-independent infrastructure for mass spectrometry data
-
-b) Flexible infrastructure for mass spectrometry data
-
-c) `Spectra` and `Chromatograms` R packages providing a flexible infrastructure
-for mass spectrometry data
+Flexible infrastructure for mass spectrometry data
 
 ## Abstract
 
