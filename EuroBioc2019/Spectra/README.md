@@ -1,6 +1,6 @@
 # Talk about `Spectra` and backend functionality
 
-Johannes Rainer, Sebastian Gibb and Laurent Gatto
+Laurent Gatto, Johannes Rainer, Sebastian Gibb<sup>1</sup>
 
 ## Title
 
@@ -33,4 +33,5 @@ data sets. Backends interfacing directly SQL based spectral libraries can in
 future facilitate the comparison of spectral data from experiments with
 reference spectra for annotation purposes.
 
-
+<sup>1</sup>The order of authors was defined by the `sample` function with a
+random seed of `42`.
