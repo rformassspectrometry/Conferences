@@ -26,3 +26,30 @@ output:
   posterdown::posterdown_html:
     self_contained: false
 ---
+
+```{r environment, results = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+Sys.setenv(LANGUAGE = "en")
+library("Spectra")
+
+# BiocManager::install("rstudio/fontawesome")
+```
+
+```{r pkgcontent, echo = FALSE, message = FALSE, warning = FALSE}
+pkgContent <- ls("package:Spectra")
+backendClassNames <- pkgContent[grep("MsBackend.+", pkgContent)]
+backendClasses <- lapply(backendClassNames, new)
+```
+
+```{r backendtable, echo = FALSE}
+classTbl <- data.frame(
+    class = backendClassNames,
+    storage = ifelse(
+        grepl("DataFrame", backendClassNames), "in-memory", "on-disk"
+    ),
+    writeable = ifelse(!sapply(backendClasses, isReadOnly), "yes", "no")
+)
+
+knitr::kable(classTbl)
+```
+
+[rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
