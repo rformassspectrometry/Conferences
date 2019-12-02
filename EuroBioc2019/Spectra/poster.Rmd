@@ -1,0 +1,28 @@
+---
+title: "Flexible Infrastructure for Mass Spectrometry Data"
+author:
+  - name: Laurent Gatto
+    affil: 1
+    orcid: "0000-0002-1520-2268"
+  - name: Johannes Rainer
+    affil: 2
+    orcid: "0000-0002-6977-7147"
+  - name: Sebastian Gibb
+    affil: 3
+    orcid: "0000-0001-7406-4443"
+affiliation:
+  - num: 1
+    address: Computational Biology and Bioinformatics Group, de Duve Institute, UCLouvain
+  - num: 2
+    address: Institute for Biomedicine, Eurac Research
+  - num: 3
+    address: Department of Anaesthesiology and Intensive Care, University Medicine Greifswald
+poster_height: "841mm"
+poster_width: "1189mm"
+column_numbers: 3
+logoleft_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/Spectra/Spectra.png
+logoright_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/logo/R4MassSpec-logo.png
+output:
+  posterdown::posterdown_html:
+    self_contained: false
+---
