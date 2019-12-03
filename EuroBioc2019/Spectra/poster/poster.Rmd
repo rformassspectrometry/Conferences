@@ -25,7 +25,7 @@ logoleft_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/sticke
 logoright_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/logo/R4MassSpec-logo.png
 bibliography:
   - rpackages.bib
-link-citations: true
+link-citations: false
 csl: nature.csl
 output:
   posterdown::posterdown_html:
