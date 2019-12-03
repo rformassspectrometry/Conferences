@@ -78,18 +78,39 @@ backendClasses <- lapply(backendClassNames, new)
 - Various open-formats, e.g. mzML, mzXML, mz5, CDF, MGF, CSV
 - Spectra libraries/Annotation information in databases, e.g. SQL
 - Multiple R-packages require different file formats and/or data structures.
+- Larger experiments don't fit into RAM.
 
-## Solution
+## Solution: `Spectra`[@Spectra]
 
-`Spectra` offers a common, flexible data structure and interface.
+- Common, flexible data structure and interface.
+- Supports various file formats by different backends.
 
-# Data Structure
+# Implementation Details
+
+## `Spectra` class
+
+- Handles one or multiple MS spectra.
+- Implements typical processing functionality.
+- Isolation from type of data storage (handled by backend classes)
+
+## `MsBackend` classes
+
+- Isolation from spectra handling and processing.
+- Specific class for each type of data storage.
 
 ```{r backendtable, echo = FALSE}
+src <- c(
+    MsBackendDataFrame = "manual",
+    MsBackendHdf5Peaks = "hdf5 files",
+    MsBackendMzR = "mzML, mzXML and CDF files",
+    MsBackendHmdbXml = "XML files",
+    MsBackendRawFileReader = "Thermo .raw files"
+)
 classTbl <- data.frame(
     class = paste0(backendClassNames,
         "[@", gsub("[^A-z]", "", names(backendClassNames)), "]"
     ),
+    source = src[backendClassNames],
     storage = ifelse(
         grepl("DataFrame", backendClassNames), "in-memory", "on-disk"
     ),
@@ -99,14 +120,43 @@ classTbl <- data.frame(
 knitr::kable(classTbl, row.names = FALSE)
 ```
 
-# Interface
+![The user interacts with a `Spectra` object. It takes care of the data storage by different backend classes.](images/Backends_03.png){width=75%}
 
-[@Spectra]
+# Example
 
-[@MsBackendRawFileReader]
+```{r example}
+# Load packages
+library(Spectra)
+library(magrittr)
+
+# Import data
+#sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
+sps <- Spectra()
+
+# Select all MS2 spectra for a [M+Na]+ ion of Fructose.
+
+mzr <- 203.0526
+mzr <- 156.07675 # Histidine
+fruct <- sps %>%
+    filterMsLevel(2) %>%
+    filterPrecursorMz(mz = mzr + ppm(c(-mzr, mzr), 20))
+
+# Centroid and clean spectra.
+
+fruct <- fruct %>%
+    pickPeaks() %>%
+    removePeaks(threshold = 500) %>%
+    clean(all = TRUE)
+
+# Change backend: load data in memory.
+
+#fruct <- setBackend(fruct, MsBackendDataFrame())
+```
 
 # Contact
 
-[rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
+- <i class="fab fa-github"></i> [rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
+- <i class="fas fa-home"></i> [rformassspectrometry.org](https://rformassspectrometry.org)
+- <i class="fab fa-twitter"></i> [#RforMassSpec](https://twitter.com/search?q=%23rformassspec)
 
 # References
