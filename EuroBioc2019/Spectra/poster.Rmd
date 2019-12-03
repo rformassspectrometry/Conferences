@@ -50,21 +50,27 @@ writeLines(bib, "rpackages.bib")
 ```
 
 ```{r pkgcontent, echo = FALSE, message = FALSE, warning = FALSE}
-pkgContent <- ls("package:Spectra")
-backendClassNames <- pkgContent[grep("MsBackend.+", pkgContent)]
+pkgContent <- lapply(paste0("package:", bkdPkgs), function(pkg) {
+    content <- ls(pkg)
+    content[grep("MsBackend.+", content)]
+})
+names(pkgContent) <- bkdPkgs
+backendClassNames <- unlist(pkgContent)
 backendClasses <- lapply(backendClassNames, new)
 ```
 
 ```{r backendtable, echo = FALSE}
 classTbl <- data.frame(
-    class = backendClassNames,
+    class = paste0(backendClassNames,
+        "[@", gsub("[^A-z]", "", names(backendClassNames)), "]"
+    ),
     storage = ifelse(
         grepl("DataFrame", backendClassNames), "in-memory", "on-disk"
     ),
     writeable = ifelse(!sapply(backendClasses, isReadOnly), "yes", "no")
 )
 
-knitr::kable(classTbl)
+knitr::kable(classTbl, row.names = FALSE)
 ```
 
 [rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
