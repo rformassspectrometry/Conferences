@@ -1,4 +1,4 @@
-# General talk abou R for Mass Spectrometry
+# Poster about R for Mass Spectrometry
 
 Laurent Gatto, Sebastian Gibb and Johannes Rainer
 
@@ -17,10 +17,9 @@ user-centered applications such as advanced data analysis and
 exploration, and developer-centered requirements such as novel method
 and pipeline development), **efficient** (the environment must be able
 to transparently deal with small and large, local or remote data using
-one consistent interface), **scalable​** (applicable on desktops and
+one consistent interface), **scalable** (applicable on desktops and
 laptops as well as remote data and compute servers, including cloud
 infrastructure), **reproducible** (to support reproducible research
-practices) as well as thoroughly ** tested** and **documented**.
+practices) as well as thoroughly **tested** and **documented**.
 
 
-Flashlight talk and poster.
