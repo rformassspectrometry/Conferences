@@ -55,33 +55,34 @@ rmdshot("Spectra.Rmd", "Spectra.pdf")
 - Harmonize development efforts.
 - See also posters from Sebastian and Laurent. 
 
-<div style="position:absolute; top:25%; left:5%;">
+<div style="position:absolute; top:20%; left:10%;">
 ```{r out.width = "700px", echo = FALSE}
 knitr::include_graphics("images/RforMassSpec-00.png")
 ```
 </div>
 
 
-## Mass Spectrum {.build}
+## Mass spectrum {.build}
 
 <div>
 ```{r out.width = "500px", echo = FALSE}
 knitr::include_graphics("images/bunch_of_spectra_01.png")
 ```
 </div>
-<div>
+<div style="position:absolute; top:55%; left:7%;">
 - Spectrum: 
   - `numeric` of m/z and of intensity values.
   - additional metadata information.
 - `MSnbase`: `Spectrum` object for a single spectrum.
 </div>
 
-## Mass Spectrum {.build}
+## Mass spectrum
 
 <div>
 ```{r out.width = "500px", echo = FALSE}
 knitr::include_graphics("images/bunch_of_spectra_02.png")
 ```
+... but usually we deal with many spectra ...
 </div>
 
 
@@ -107,7 +108,7 @@ knitr::include_graphics("images/Backends_01.png")
 </div>
 
 <div style="position:absolute; top:70%;">
-- Separate data handling and storage from the user functionality.
+- Separate user functionality from data handling and storage.
 </div>
 
 ## Think flexible: `MsBackend`
@@ -119,18 +120,15 @@ knitr::include_graphics("images/Backends_04.png")
 </div>
 
 <div style="position:absolute; top:70%;">
-- Separate data handling and storage from the user functionality.
-- Support for different backends (could be remote, SQL-based...).
-- *Lazy evaluation queue*.
+- Separate user functionality from data handling and storage.
+- Supports different *backends* (remote files, SQL-based, ...).
 </div>
 
-## Use case: match a spectrum against a database
+## Example {.smaller .build}
 
-- use one of our MS2 data files... with one example...
-- match against the HMDB database.
+- Import data from an mzML file.
 
-
-```{r}
+```{r, message = FALSE}
 library(Spectra)
 library(magrittr)
 
@@ -138,7 +136,9 @@ sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
 sps
 ```
 
-Select all MS2 spectra for a [M+Na]+ ion of Fructose.
+## Example {.smaller .build}
+
+- Select all MS2 spectra for a [M+Na]+ ion of Fructose.
 
 ```{r eval = FALSE}
 mzr <- 203.0526
@@ -149,23 +149,49 @@ fruct <- sps %>%
 fruct
 ```
 
-Centroid and clean spectra.
+## Example {.smaller .build}
+
+- Centroid and clean spectra.
 
 ```{r, eval = FALSE}
 fruct <- fruct %>%
     pickPeaks() %>%
-    removePeaks(threshold = 2000) %>%
+    removePeaks(threshold = 500) %>%
     clean(all = TRUE)
-
-plot(fruct$mz[[1]], fruct$intensity[[1]], type = "h")
+fruct
 ```
 
-```{r read-hmdb, eval = !file.exists("data/hmdb.RData")}
+## Example {.smaller .build}
+
+- Change backend: load data in memory.
+
+```{r, eval = FALSE}
+fruct <- setBackend(fruct, MsBackendDataFrame())
+fruct
+```
+
+## Example {.smaller .build}
+
+- Import reference spectra from HMDB.
+
+```{r read-hmdb, eval = FALSE}
 library(MsBackendHmdb)
-fls <- dir("data/hmdb_all_spectra", full.names = TRUE, pattern = "xml$")
+fls <- dir("data/hmdb_all_spectra", full.names = TRUE, pattern = "ms_ms_")
 hmdb <- Spectra(fls, source = MsBackendHmdbXml(), nonStop = TRUE)
 ```
 
 ```{r load-hmdb, eval = file.exists("data/hmdb.RData"), echo = FALSE}
 load("data/hmdb.RData")
+```
+
+```{r, eval = FALSE}
+hmdb
+```
+
+## Example {.smaller .build}
+
+- Match spectrum against database.
+
+```{r}
+
 ```
