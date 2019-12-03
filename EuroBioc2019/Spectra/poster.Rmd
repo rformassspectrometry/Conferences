@@ -59,6 +59,29 @@ backendClassNames <- unlist(pkgContent)
 backendClasses <- lapply(backendClassNames, new)
 ```
 
+# Introduction
+
+## Mass Spectrometry (MS) Data
+
+- Paired measurements:
+    - intensity (counts) vs *m/z* (mass-to-charge ratio).
+    - intensity vs retention time.
+
+- Additional various metatdata.
+
+## Problems
+
+- Vendor-specific, closed file formats.
+- Various open-formats, e.g. mzML, mzXML, mz5, CDF, MGF, CSV
+- Spectra libraries/Annotation information in databases, e.g. SQL
+- Multiple R-packages require different file formats and/or data structures.
+
+## Solution
+
+`Spectra` offers a common, flexible data structure and interface.
+
+# Data Structure
+
 ```{r backendtable, echo = FALSE}
 classTbl <- data.frame(
     class = paste0(backendClassNames,
@@ -72,6 +95,14 @@ classTbl <- data.frame(
 
 knitr::kable(classTbl, row.names = FALSE)
 ```
+
+# Interface
+
+[@Spectra]
+
+[@MsBackendRawFileReader]
+
+# Contact
 
 [rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
 
