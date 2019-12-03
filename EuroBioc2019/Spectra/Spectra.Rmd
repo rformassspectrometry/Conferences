@@ -1,0 +1,171 @@
+---
+title: "Flexible infrastructure for mass spectrometry data"
+author: "Laurent Gatto, <u>Johannes Rainer</u>, Sebastian Gibb<sup>1</sup><br><br>"
+date: "<font size='2'><sup>1</sup>order of authors defined by `sample` 
+	with a random seed of `42`</font>"
+output: 
+  ioslides_presentation:
+    logo: images/R4MassSpec-logo.png
+    widescreen: false
+    fig_width: 7
+    fig_height: 5
+    fig_retina: 2
+    fig_caption: false
+    transition: faster
+    css: jostyle.css
+---
+
+<style type="text/css">
+
+slides > slide:not(.nobackground):after {
+  content: '';
+}
+
+slides > slide {
+    -webkit-transition:none !important;transition:none !important;
+}
+
+.build > * {
+  -webkit-transition: opacity 0.1s ease-in-out;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition: opacity 0.1s ease-in-out 0.1s;
+  -o-transition: opacity 0.1s ease-in-out 0.1s;
+  transition: opacity 0.1s ease-in-out 0.1s;
+}
+
+</style>
+
+<!--
+Export to pdf:
+webshot function from webshot package.
+Might have to change stuff in the style sheet to make it working.
+library(webshot)
+install_phantomjs()
+rmdshot("Spectra.Rmd", "Spectra.pdf")
+-->
+
+## RforMassSpectrometry {.build}
+
+- [Initiative](https://www.rformassspectrometry.org) to create a MS
+  infrastructure/environment that is
+  - **flexible** (for users and developers, proteomics and metabolomics)
+  - **efficient** and **scalable** (handle local/remote and small/large data
+    sets)
+  - **tested** and **documented**.
+- Harmonize development efforts.
+- See also posters from Sebastian and Laurent. 
+
+<div style="position:absolute; top:25%; left:5%;">
+```{r out.width = "700px", echo = FALSE}
+knitr::include_graphics("images/RforMassSpec-00.png")
+```
+</div>
+
+
+## Mass Spectrum {.build}
+
+<div>
+```{r out.width = "500px", echo = FALSE}
+knitr::include_graphics("images/bunch_of_spectra_01.png")
+```
+</div>
+<div>
+- Spectrum: 
+  - `numeric` of m/z and of intensity values.
+  - additional metadata information.
+- `MSnbase`: `Spectrum` object for a single spectrum.
+</div>
+
+## Mass Spectrum {.build}
+
+<div>
+```{r out.width = "500px", echo = FALSE}
+knitr::include_graphics("images/bunch_of_spectra_02.png")
+```
+</div>
+
+
+## Think bigger: `Spectra`
+
+<div>
+```{r out.width = "500px", echo = FALSE}
+knitr::include_graphics("images/Spectra_01.png")
+```
+</div>
+
+<div style="position:absolute; top:70%;">
+- One object to contain data from one or many spectra.
+- Provides all functionality to work with spectrum data.
+</div>
+
+## Think flexible: `MsBackend`
+
+<div>
+```{r out.width = "500px", echo = FALSE}
+knitr::include_graphics("images/Backends_01.png")
+```
+</div>
+
+<div style="position:absolute; top:70%;">
+- Separate data handling and storage from the user functionality.
+</div>
+
+## Think flexible: `MsBackend`
+
+<div>
+```{r out.width = "500px", echo = FALSE}
+knitr::include_graphics("images/Backends_04.png")
+```
+</div>
+
+<div style="position:absolute; top:70%;">
+- Separate data handling and storage from the user functionality.
+- Support for different backends (could be remote, SQL-based...).
+- *Lazy evaluation queue*.
+</div>
+
+## Use case: match a spectrum against a database
+
+- use one of our MS2 data files... with one example...
+- match against the HMDB database.
+
+
+```{r}
+library(Spectra)
+library(magrittr)
+
+sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
+sps
+```
+
+Select all MS2 spectra for a [M+Na]+ ion of Fructose.
+
+```{r eval = FALSE}
+mzr <- 203.0526
+mzr <- 156.07675 # Histidine
+fruct <- sps %>%
+    filterMsLevel(2) %>%
+    filterPrecursorMz(mz = mzr + ppm(c(-mzr, mzr), 20))
+fruct
+```
+
+Centroid and clean spectra.
+
+```{r, eval = FALSE}
+fruct <- fruct %>%
+    pickPeaks() %>%
+    removePeaks(threshold = 2000) %>%
+    clean(all = TRUE)
+
+plot(fruct$mz[[1]], fruct$intensity[[1]], type = "h")
+```
+
+```{r read-hmdb, eval = !file.exists("data/hmdb.RData")}
+library(MsBackendHmdb)
+fls <- dir("data/hmdb_all_spectra", full.names = TRUE, pattern = "xml$")
+hmdb <- Spectra(fls, source = MsBackendHmdbXml(), nonStop = TRUE)
+```
+
+```{r load-hmdb, eval = file.exists("data/hmdb.RData"), echo = FALSE}
+load("data/hmdb.RData")
+```
