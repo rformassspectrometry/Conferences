@@ -1,9 +1,9 @@
 ---
 title: "Flexible infrastructure for mass spectrometry data"
 author: "Laurent Gatto, <u>Johannes Rainer</u>, Sebastian Gibb<sup>1</sup><br><br>"
-date: "<font size='2'><sup>1</sup>order of authors defined by `sample` 
+date: "<font size='2'><sup>1</sup>order of authors defined by `sample`
 	with a random seed of `42`</font>"
-output: 
+output:
   ioslides_presentation:
     logo: images/R4MassSpec-logo.png
     widescreen: false
@@ -53,7 +53,7 @@ rmdshot("Spectra.Rmd", "Spectra.pdf")
     sets)
   - **tested** and **documented**.
 - Harmonize development efforts.
-- See also posters from Sebastian and Laurent. 
+- See also posters from Sebastian and Laurent.
 
 <div style="position:absolute; top:20%; left:10%;">
 ```{r out.width = "700px", echo = FALSE}
@@ -70,7 +70,7 @@ knitr::include_graphics("images/bunch_of_spectra_01.png")
 ```
 </div>
 <div style="position:absolute; top:55%; left:7%;">
-- Spectrum: 
+- Spectrum:
   - `numeric` of m/z and of intensity values.
   - additional metadata information.
 - `MSnbase`: `Spectrum` object for a single spectrum.
@@ -138,15 +138,15 @@ sps
 
 ## Example {.smaller .build}
 
-- Select all MS2 spectra for a [M+Na]+ ion of Fructose.
+- Select all MS2 spectra for a [M+H]+ ion of Histidine.
 
 ```{r eval = FALSE}
-mzr <- 203.0526
+mzr <- 203.0526  # Fructose
 mzr <- 156.07675 # Histidine
-fruct <- sps %>%
+ms2 <- sps %>%
     filterMsLevel(2) %>%
     filterPrecursorMz(mz = mzr + ppm(c(-mzr, mzr), 20))
-fruct
+ms2
 ```
 
 ## Example {.smaller .build}
@@ -154,11 +154,11 @@ fruct
 - Centroid and clean spectra.
 
 ```{r, eval = FALSE}
-fruct <- fruct %>%
+ms2 <- ms2 %>%
     pickPeaks() %>%
     removePeaks(threshold = 500) %>%
     clean(all = TRUE)
-fruct
+ms2
 ```
 
 ## Example {.smaller .build}
@@ -166,8 +166,8 @@ fruct
 - Change backend: load data in memory.
 
 ```{r, eval = FALSE}
-fruct <- setBackend(fruct, MsBackendDataFrame())
-fruct
+ms2 <- setBackend(ms2, MsBackendDataFrame())
+ms2
 ```
 
 ## Example {.smaller .build}
