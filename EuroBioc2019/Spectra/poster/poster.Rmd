@@ -19,7 +19,7 @@ affiliation:
     address: Department of Anaesthesiology and Intensive Care, University Medicine Greifswald
 poster_width: "841mm"
 poster_height: "1189mm"
-primary_colour: "#a537fd"
+primary_colour: "#2574A9"
 column_numbers: 2
 logoleft_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/Spectra/Spectra.png
 logoright_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/logo/R4MassSpec-logo.png
