@@ -22,6 +22,10 @@ poster_height: "1189mm"
 column_numbers: 2
 logoleft_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/Spectra/Spectra.png
 logoright_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/logo/R4MassSpec-logo.png
+bibliography:
+  - rpackages.bib
+link-citations: true
+csl: nature.csl
 output:
   posterdown::posterdown_html:
     self_contained: false
@@ -31,7 +35,18 @@ output:
 Sys.setenv(LANGUAGE = "en")
 library("Spectra")
 
-# BiocManager::install("rstudio/fontawesome")
+# sudo su apt install mono-devel nuget
+# BiocManager::install("cpanse/MsBackendRawFileReader@Bioc3.10")
+library("MsBackendRawFileReader")
+
+bkdPkgs <- c("Spectra", "MsBackendRawFileReader")
+```
+
+```{r citations, results = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
+packagesToCite <- bkdPkgs
+bib <- unlist(lapply(packagesToCite, function(x)toBibtex(citation(x))))
+bib[grepl("Manual\\{", bib)] <- paste0("@Manual{", packagesToCite, ",")
+writeLines(bib, "rpackages.bib")
 ```
 
 ```{r pkgcontent, echo = FALSE, message = FALSE, warning = FALSE}
@@ -53,3 +68,5 @@ knitr::kable(classTbl)
 ```
 
 [rformassspectrometry/Spectra](https://github.com/rformassspectrometry/Spectra)
+
+# References
