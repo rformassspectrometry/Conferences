@@ -17,9 +17,9 @@ affiliation:
     address: Institute for Biomedicine, Eurac Research
   - num: 3
     address: Department of Anaesthesiology and Intensive Care, University Medicine Greifswald
-poster_height: "841mm"
-poster_width: "1189mm"
-column_numbers: 3
+poster_width: "841mm"
+poster_height: "1189mm"
+column_numbers: 2
 logoleft_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/Spectra/Spectra.png
 logoright_name: https&#58;//raw.githubusercontent.com/rformassspectrometry/stickers/master/logo/R4MassSpec-logo.png
 output:
