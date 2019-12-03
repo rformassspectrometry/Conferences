@@ -35,11 +35,14 @@ output:
 Sys.setenv(LANGUAGE = "en")
 library("Spectra")
 
+# BiocManager::install("rformassspectrometry/MsBackendHmdb")
+library("MsBackendHmdb")
+
 # sudo su apt install mono-devel nuget
 # BiocManager::install("cpanse/MsBackendRawFileReader@Bioc3.10")
 library("MsBackendRawFileReader")
 
-bkdPkgs <- c("Spectra", "MsBackendRawFileReader")
+bkdPkgs <- c("Spectra", "MsBackendHmdb", "MsBackendRawFileReader")
 ```
 
 ```{r citations, results = FALSE, echo = FALSE, message = FALSE, warning = FALSE}
