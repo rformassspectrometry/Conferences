@@ -143,15 +143,15 @@
 
 \title[Spectra]{\huge \Rpackage{Spectra}: A Flexible Infrastructure for Mass Spectrometry Data}
 
-\author[Gatto et al.]{
-    \large Laurent Gatto$^{1}$, Johannes Rainer$^{2}$ and Sebastian Gibb$^{3}$
+\author[Gibb et al.]{
+    \large Sebastian Gibb$^{1}$, Laurent Gatto$^{2}$ and Johannes Rainer$^{3}$
 }
 
 \institute[]{
   \begin{small}
-    $^{1}$ de Duve Institute, UCLouvain, Brussels, Belgium \\
-    $^{2}$ Institute for Biomedicine, Eurac Research, Italy \\
-    $^{3}$ Department of Anaesthesiology and Intensive Care, University Medicine Greifswald, Germany \\
+    $^{1}$ Department of Anaesthesiology and Intensive Care, University Medicine Greifswald, Germany \\
+    $^{2}$ de Duve Institute, UCLouvain, Brussels, Belgium \\
+    $^{3}$ Institute for Biomedicine, Eurac Research, Italy \\
     ~
   \end{small}
 }
