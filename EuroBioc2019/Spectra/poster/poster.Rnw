@@ -346,21 +346,18 @@ fruct <- setBackend(fruct, MsBackendDataFrame())
 
   \begin{columns}
 
-    \begin{column}{.1\textwidth}
+    \begin{column}{.05\textwidth}
     \end{column}
 
-    \begin{column}{.8\textwidth}
+    \begin{column}{.9\textwidth}
 
-        To use the \Rpackage{Spectra} package install
-        the \textbf{R for Mass Spectrometry} packages and
-          load the core packages:
+        Install the \Rpackage{Spectra} package using:
 
 <<r install, eval = FALSE >>=
-BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
-library("RforMassSpectrometry")
+BiocManager::install(c("RforMassSpectrometry/MsCoreUtils", "RforMassSpectrometry/Spectra"))
 @
     \end{column}
-    \begin{column}{.1\textwidth}
+    \begin{column}{.05\textwidth}
     \end{column}
   \end{columns}
 
