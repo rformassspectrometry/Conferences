@@ -12,7 +12,6 @@
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \begin{columns}[T]
       \begin{column}{.05\paperwidth}
-        \vskip4ex
       \end{column}
       \begin{column}{.7\paperwidth}
         \vspace{1cm}
@@ -21,9 +20,9 @@
         \usebeamercolor{institute in headline}{\color{fg}\LARGE{\insertinstitute}\\[1ex]}
       \end{column}
       \begin{column}{.15\paperwidth}
-        \vspace{1cm}
+        \vspace{5mm}
         \includegraphics[width=1\linewidth, keepaspectratio]{../../RforMassSpectrometry/figs/hex-Spectra.png}
-        \vspace{1cm}
+        \vspace{5mm}
       \end{column}
     \end{columns}
   \end{beamercolorbox}
@@ -197,7 +196,7 @@ backendClasses <- lapply(backendClassNames, new)
 
   \begin{columns}[T]
 
-    \begin{column}{.5\textwidth}
+    \begin{column}{.48\textwidth}
 
         \begin{block}{Mass Spectrometry (MS) Data}
             \begin{itemize}
@@ -210,6 +209,8 @@ backendClasses <- lapply(backendClassNames, new)
             \end{itemize}
         \end{block}
 
+        \vspace{1cm}
+
         \begin{block}{Problems}
             \begin{itemize}
             \item Vendor-specific, closed file formats.
@@ -221,12 +222,16 @@ backendClasses <- lapply(backendClassNames, new)
             \end{itemize}
         \end{block}
 
+        \vspace{1cm}
+
         \begin{block}{Solution: \Rpackage{Spectra}\cite{Spectra}}
             \begin{itemize}
                 \item Common, flexible data structure and interface.
                 \item Supports various file formats by different backends.
             \end{itemize}
         \end{block}
+
+        \vspace{1cm}
 
         \begin{block}{\Robject{Spectra} class}
             \begin{itemize}
@@ -235,6 +240,8 @@ backendClasses <- lapply(backendClassNames, new)
                 \item Isolation from type of data storage (handled by backend classes)
             \end{itemize}
         \end{block}
+
+        \vspace{1cm}
 
         \begin{block}{\Robject{MsBackend} classes}
             \begin{itemize}
@@ -273,7 +280,7 @@ knitr::kable(classTbl, row.names = FALSE, booktabs = TRUE, escape = FALSE)
         \end{block}
     \end{column}
 
-    \begin{column}{.5\textwidth}
+    \begin{column}{.48\textwidth}
 
         \begin{block}{Example}
 <<r example, size="small">>=
@@ -296,17 +303,17 @@ fruct <- sps %>%
     )
 
 # Centroid and clean spectra.
-
 fruct <- fruct %>%
     pickPeaks() %>%
     removePeaks(threshold = 500) %>%
     clean(all = TRUE)
 
 # Change backend: load data in memory.
-
 #fruct <- setBackend(fruct, MsBackendDataFrame())
 @
     \end{block}
+
+    \vspace{1cm}
 
     \begin{block}{Contact}
         \small
@@ -316,6 +323,8 @@ fruct <- fruct %>%
             \item \url{https://twitter.com/search?q=\%23rformassspec}
         \end{itemize}
     \end{block}
+
+    \vspace{1cm}
 
     \begin{block}{References}
         \small
@@ -329,9 +338,11 @@ fruct <- fruct %>%
 
   \begin{columns}
 
-    \begin{column}{.7\textwidth}
+    \begin{column}{.1\textwidth}
+    \end{column}
 
-      \begin{block}{}
+    \begin{column}{.8\textwidth}
+
         To use the \Rpackage{Spectra} package install
         the \textbf{R for Mass Spectrometry} packages and
           load the core packages:
@@ -340,10 +351,8 @@ fruct <- fruct %>%
 BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
 library("RforMassSpectrometry")
 @
-
-      \end{block}
     \end{column}
-    \begin{column}{.2\textwidth}
+    \begin{column}{.1\textwidth}
     \end{column}
   \end{columns}
 
