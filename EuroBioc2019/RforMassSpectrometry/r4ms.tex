@@ -14,6 +14,7 @@
         %% \includegraphics[width=.8\linewidth, keepaspectratio]{./figs/LOGO-InstitutDeDuve-Horizontal-CMYK.jpg}
       \end{column}
       \begin{column}{.8\paperwidth}
+        \vspace{1cm}
         \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1.5ex]}
         \usebeamercolor{author in headline}{\color{fg}\huge{\insertauthor}\\[1ex]}
         \usebeamercolor{institute in headline}{\color{fg}\LARGE{\insertinstitute}\\[1ex]}
@@ -57,7 +58,7 @@
 \usepackage{listings,lstautogobble}
 \lstset{
   language=R,
-  basicstyle=\footnotesize\ttfamily\color{vdgray}, % the size of the fonts that are used for the code
+  basicstyle=\small\ttfamily\color{vdgray}, % the size of the fonts that are used for the code
   % sensitive=false,
   backgroundcolor=\color{lgray},  % choose the background color. You must add \usepackage{color}
   keywordstyle=\color{blue},      % keyword style
@@ -171,13 +172,8 @@
           thoroughly documented, tested and flexible R software for
           the analysis and interpretation of high throughput mass
           spectrometry assays, including proteomics and metabolomics
-          experiments. The project formalises the longtime
-          collaborative development efforts of its core members under
-          the \textit{RforMassSpectrometry} organisation to facilitate
-          dissemination and accessibility of their work.}
+          experiments.}
       \end{block}
-
-      \vspace{3cm}
 
       \begin{block}{}
         \begin{center}
@@ -187,12 +183,30 @@
 
       \end{block}
 
-      \vspace{3cm}
+      \begin{block}{}
+        \justifying The project formalises the longtime collaborative
+        development efforts of its core members (notably the
+        \Rpackage{mzR}, \Rpackage{MSnbase} and \Rpackage{xcms}
+        packages) under the \textit{RforMassSpectrometry} organisation
+        to facilitate dissemination and accessibility of their work.
+      \end{block}
+
+
+      \begin{block}{}
+        \justifying \textit{RforMassSpectrometry} currently contains a
+        set of core packages (described on the right), that lay out
+        the infrastructure for the \textbf{analysis and interpretation
+          of high throughput mass spectrometry assays}.
+
+      \end{block}
+
+      \vspace{2cm}
 
       \secintro{
-        \textbf{Contributions} to the initiative are more than welcome,
-        whether under the form of ideas, documentation, code, packages,
-        \ldots \\
+
+        The project is still at an early stage. \textbf{Contributions}
+        to the initiative are more than welcome, whether under the
+        form of ideas, documentation, code, packages, \ldots \\
 
         Find details about contribution guidelines and \textbf{code of
           conduct} on our webpage.
@@ -274,7 +288,7 @@
 
     \begin{column}{.7\textwidth}
 
-      \vspace{3cm}
+      \vspace{2cm}
 
       \begin{block}{}
         To install all the \textbf{R for Mass Spectrometry} packages
