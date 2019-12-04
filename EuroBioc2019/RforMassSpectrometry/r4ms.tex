@@ -7,7 +7,7 @@
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \begin{columns}[T]
       \begin{column}{.1\paperwidth}
-        %% \vspace{1cm}        
+        %% \vspace{1cm}
         %% \includegraphics[width=1\linewidth, keepaspectratio]{./figs/UCLouvain_Logo_Pos_CMJN_prof-eps-converted-to.pdf}\\
         %% \vspace{1cm}
         %% \hspace{1.5cm}
@@ -57,12 +57,12 @@
 \usepackage{listings,lstautogobble}
 \lstset{
   language=R,
-  basicstyle=\small\ttfamily\color{vdgray}, % the size of the fonts that are used for the code
+  basicstyle=\footnotesize\ttfamily\color{vdgray}, % the size of the fonts that are used for the code
   % sensitive=false,
   backgroundcolor=\color{lgray},  % choose the background color. You must add \usepackage{color}
   keywordstyle=\color{blue},      % keyword style
   stringstyle=\color{green},      % string literal style
-  autogobble=true  
+  autogobble=true
 }
 
 
@@ -163,7 +163,7 @@
 
   \begin{columns}[T]
 
-    \begin{column}{.67\textwidth}
+    \begin{column}{.3\textwidth}
 
       \begin{block}{}
         \secintro{ \justifying The aim of the \textbf{R for Mass
@@ -175,20 +175,42 @@
           collaborative development efforts of its core members under
           the \textit{RforMassSpectrometry} organisation to facilitate
           dissemination and accessibility of their work.}
-
-        \begin{center}
-          {\large For more details, visit
-            \url{http://www.RforMassSpectrometry.org}}
-        \end{center}
-        
       \end{block}
 
-      \vspace{2cm}
+      \vspace{3cm}
 
-      The project is currently composed of the following packages:
+      \begin{block}{}
+        \begin{center}
+          {\large For more details, visit \\
+            \url{RforMassSpectrometry.org}}
+        \end{center}
+
+      \end{block}
+
+      \vspace{3cm}
+
       \secintro{
-        \vspace{1cm}
-        
+        \textbf{Contributions} to the initiative are more than welcome,
+        whether under the form of ideas, documentation, code, packages,
+        \ldots \\
+
+        Find details about contribution guidelines and \textbf{code of
+          conduct} on our webpage.
+
+      }
+
+    \end{column}
+
+    \begin{column}{.2\textwidth}
+          \begin{figure}
+            \centering
+            \includegraphics[width=1\linewidth]{./figs/pkgs.pdf}
+          \end{figure}
+
+    \end{column}
+
+    \begin{column}{.4\textwidth}
+
       \begin{block}{}
         \justifying \bpkg{RforMassSpectrometry} is a meta-package that
         is used to manage the R for Mass Spectrometry suite of package
@@ -197,7 +219,7 @@
       \end{block}
 
       \vspace{1cm}
-      
+
       \begin{block}{}
         \justifying The \bpkg{Spectra} package provides base classes
         and processing methods for raw mass spectrometry data. It is
@@ -207,7 +229,7 @@
       \end{block}
 
       \vspace{1cm}
-      
+
       \begin{block}{}
         \justifying The \bpkg{Chromatograms} package provides base
         classes and processing methods for chromatographics data. It
@@ -217,7 +239,7 @@
       \end{block}
 
       \vspace{1cm}
-      
+
       \begin{block}{}
         \justifying The \bpkg{Features} package offers the
         infrastrucutre to manage and process quantitative features for
@@ -226,7 +248,7 @@
       \end{block}
 
       \vspace{1cm}
-      
+
       \begin{block}{}
         \justifying The \bpkg{MsExperiment} package provides the
         infrastructure to store and manage all aspects related to a
@@ -236,44 +258,39 @@
       \end{block}
 
       \vspace{1cm}
-      
+
       \begin{block}{}
         \justifying The \bpkg{MsCoreUtils} package defines low-level
         functions for mass spectrometry data processing and is
         independent of any high-level data structures.
       \end{block}
-      }
 
-      \vspace{3cm}
-      
-      To install all the \textbf{R for Mass Spectrometry} packages
-      and load the core packages:
-
-      \vspace{5mm}
-        
-      \begin{lstlisting}
-        BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
-        library("RforMassSpectrometry")
-      \end{lstlisting}
-
-      \vspace{3cm}
-
-      \secintro{
-        \textbf{Contributions} to the initiative are more than welcome,
-        whether under the form of ideas, documentation, code, packages,
-        \ldots Find details about contribution guidelines and
-        \textbf{code of conduct} on our webpage.
-      }
 
     \end{column}
 
-    \begin{column}{.27\textwidth}
-          \begin{figure}
-            \centering
-            \includegraphics[width=1\linewidth]{./figs/pkgs.pdf}
-          \end{figure}
+  \end{columns}
+
+  \begin{columns}
+
+    \begin{column}{.7\textwidth}
+
+      \vspace{3cm}
+
+      \begin{block}{}
+        To install all the \textbf{R for Mass Spectrometry} packages
+        and load the core packages:
+
+        \vspace{5mm}
+
+        \begin{lstlisting}
+          BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
+          library("RforMassSpectrometry")
+        \end{lstlisting}
+
+      \end{block}
     \end{column}
-    
+    \begin{column}{.2\textwidth}
+    \end{column}
   \end{columns}
 
   \vfill
