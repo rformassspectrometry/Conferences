@@ -11,21 +11,19 @@
   \leavevmode
   \begin{beamercolorbox}[wd=\paperwidth]{headline}
     \begin{columns}[T]
-      \begin{column}{.1\paperwidth}
-        %% \vspace{1cm}
-        %% \includegraphics[width=1\linewidth, keepaspectratio]{./figs/UCLouvain_Logo_Pos_CMJN_prof-eps-converted-to.pdf}\\
-        %% \vspace{1cm}
-        %% \hspace{1.5cm}
-        %% \includegraphics[width=.8\linewidth, keepaspectratio]{./figs/LOGO-InstitutDeDuve-Horizontal-CMYK.jpg}
+      \begin{column}{.05\paperwidth}
+        \vskip4ex
       \end{column}
-      \begin{column}{.8\paperwidth}
+      \begin{column}{.7\paperwidth}
         \vspace{1cm}
         \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1.5ex]}
         \usebeamercolor{author in headline}{\color{fg}\huge{\insertauthor}\\[1ex]}
         \usebeamercolor{institute in headline}{\color{fg}\LARGE{\insertinstitute}\\[1ex]}
       \end{column}
-      \begin{column}{.1\paperwidth}
-        \vskip4ex
+      \begin{column}{.15\paperwidth}
+        \vspace{1cm}
+        \includegraphics[width=1\linewidth, keepaspectratio]{../../RforMassSpectrometry/figs/hex-Spectra.png}
+        \vspace{1cm}
       \end{column}
     \end{columns}
   \end{beamercolorbox}
