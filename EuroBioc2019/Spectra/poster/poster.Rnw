@@ -1,0 +1,357 @@
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{RforProteomics Bioc2013 poster}
+%\VignetteKeywords{bioinformatics, proteomics, mass spectrometry}
+
+\documentclass[final]{beamer}
+\usepackage{ragged2e}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+
+\setbeamertemplate{headline}{
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth]{headline}
+    \begin{columns}[T]
+      \begin{column}{.1\paperwidth}
+        %% \vspace{1cm}
+        %% \includegraphics[width=1\linewidth, keepaspectratio]{./figs/UCLouvain_Logo_Pos_CMJN_prof-eps-converted-to.pdf}\\
+        %% \vspace{1cm}
+        %% \hspace{1.5cm}
+        %% \includegraphics[width=.8\linewidth, keepaspectratio]{./figs/LOGO-InstitutDeDuve-Horizontal-CMYK.jpg}
+      \end{column}
+      \begin{column}{.8\paperwidth}
+        \vspace{1cm}
+        \usebeamercolor{title in headline}{\color{fg}\textbf{\Huge{\inserttitle}}\\[1.5ex]}
+        \usebeamercolor{author in headline}{\color{fg}\huge{\insertauthor}\\[1ex]}
+        \usebeamercolor{institute in headline}{\color{fg}\LARGE{\insertinstitute}\\[1ex]}
+      \end{column}
+      \begin{column}{.1\paperwidth}
+        \vskip4ex
+      \end{column}
+    \end{columns}
+  \end{beamercolorbox}
+
+}
+
+\mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
+}
+
+
+%% \setbeamertemplate{bibliography item}[text]
+
+\boldmath
+\usepackage[orientation=portrait,size=a0,scale=1.75,debug]{beamerposter}                        % e.g. for DIN-A0 poster
+%\usepackage[orientation=portrait,size=a1,scale=1.4,grid,debug]{beamerposter}                  % e.g. for DIN-A1 poster, with optional grid and debug output
+%\usepackage[size=custom,width=200,height=120,scale=2,debug]{beamerposter}                     % e.g. for custom size poster
+%\usepackage[orientation=portrait,size=a0,scale=1.0,printer=rwth-glossy-uv.df]{beamerposter}   % e.g. for DIN-A0 poster with rwth-glossy-uv printer check
+% ...
+%
+
+%% hide navigation symbols (bottom right)
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{lipsum}
+\usepackage{ragged2e}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath,amsthm, amssymb, latexsym}
+\usefonttheme[onlymath]{serif}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{listings,lstautogobble}
+\lstset{
+  language=R,
+  basicstyle=\small\ttfamily\color{vdgray}, % the size of the fonts that are used for the code
+  % sensitive=false,
+  backgroundcolor=\color{lgray},  % choose the background color. You must add \usepackage{color}
+  keywordstyle=\color{blue},      % keyword style
+  stringstyle=\color{green},      % string literal style
+  autogobble=true
+}
+
+
+\usepackage{tcolorbox}
+\usepackage{changepage} %% provided adjustwidth
+\usepackage{framed}
+
+\newenvironment{Leftbar}{%
+  \def\FrameCommand{\vrule width 3pt \hspace{20pt}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+ {\endMakeFramed}
+
+\newcommand{\R}{\texttt{R} }
+\newcommand{\code}[1]{{\texttt{#1}}}
+\newcommand{\Rfunction}[1]{{\texttt{#1}}}
+\newcommand{\Robject}[1]{{\texttt{#1}}}
+\newcommand{\Rpackage}[1]{{\mbox{\texttt{#1}}}}
+\newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
+\newcommand{\bpkg}[1]{{\textbf{#1}}}
+
+\newcommand{\challenge}[1]{
+       \begin{tcolorbox}[notitle,boxrule=1pt,colback=blue!10,colframe=blue!25]
+         {#1}
+       \end{tcolorbox}
+}
+
+\newcommand{\secintro}[1]{
+  \bigskip
+  \begin{tcolorbox}[notitle,boxrule=10pt,colback=blue!10,colframe=blue!10]{#1}\end{tcolorbox}}
+
+%% colors
+\definecolor{Red}{rgb}{0.7,0,0}
+\definecolor{Blue}{rgb}{0,0,0.8}
+\definecolor{lgray}{rgb}{0.9179688,0.9179688,0.9179688} % #ebebeb
+\definecolor{dgray}{rgb}{0.796875,0.796875,0.796875} % #cccccc
+\definecolor{vdgray}{rgb}{0.3984375,0.3984375,0.3984375} % #666666
+\definecolor{coral}{rgb}{0.9960938,0.4960938,0.3125000} % #ff7f50
+\definecolor{blue}{rgb}{0.4218750,0.6484375,0.8007812} % #6ca6cd
+\definecolor{green}{rgb}{0.6992188,0.7265625,0.5078125} % #b3ba82
+\definecolor{yellow}{rgb}{0.9570312,0.8671875,0.6992188} % #f5deb3
+
+\usepackage{hyperref}
+\usepackage{breakurl}
+\hypersetup{%
+  pdfauthor={Laurent Gatto},%
+  pdfusetitle,
+  bookmarks = {true},
+  bookmarksnumbered = {true},
+  bookmarksopen = {true},
+  bookmarksopenlevel = 2,
+  unicode = {true},
+  breaklinks = {false},
+  hyperindex = {true},
+  colorlinks = {true},
+  linktocpage = {true},
+  plainpages = {false},
+  linkcolor = {Blue},
+  citecolor = {Blue},
+  urlcolor = {Red},
+  pdfstartview = {Fit},
+  pdfpagemode = {UseOutlines},
+  pdfview = {XYZ null null null}
+}
+
+
+\setbeamertemplate{caption}[numbered]
+
+%% %% figure numering
+%% \usecaptiontemplate{
+%%   \small
+%%   \structure{\insertcaptionname~\insertcaptionnumber:}
+%%   \insertcaption
+%% }
+
+\title[Spectra]{\huge \Rpackage{Spectra}: A Flexible Infrastructure for Mass Spectrometry Data}
+
+\author[Gatto et al.]{
+    \large Laurent Gatto$^{1}$, Johannes Rainer$^{2}$ and Sebastian Gibb$^{3}$
+}
+
+\institute[]{
+  \begin{small}
+    $^{1}$ de Duve Institute, UCLouvain, Brussels, Belgium \\
+    $^{2}$ Institute for Biomedicine, Eurac Research, Italy \\
+    $^{3}$ Department of Anaesthesiology and Intensive Care, University Medicine Greifswald, Germany \\
+    ~
+  \end{small}
+}
+
+
+\date[]{~}
+%% \date{}
+
+\begin{document}
+
+<<r environment, results = FALSE, echo = FALSE, message = FALSE, warning = FALSE>>=
+Sys.setenv(LANGUAGE = "en")
+library("Spectra")
+
+# BiocManager::install("rformassspectrometry/MsBackendHmdb")
+library("MsBackendHmdb")
+
+# sudo su apt install mono-devel nuget
+# BiocManager::install("cpanse/MsBackendRawFileReader@Bioc3.10")
+library("MsBackendRawFileReader")
+
+bkdPkgs <- c("Spectra", "MsBackendHmdb", "MsBackendRawFileReader")
+@
+
+<<r citations, results = FALSE, echo = FALSE, message = FALSE, warning = FALSE>>=
+packagesToCite <- bkdPkgs
+bib <- unlist(lapply(packagesToCite, function(x)toBibtex(citation(x))))
+bib[grepl("Manual\\{", bib)] <- paste0("@Manual{", packagesToCite, ",")
+writeLines(bib, "rpackages.bib")
+@
+
+<<r pkgcontent, echo = FALSE, message = FALSE, warning = FALSE>>=
+pkgContent <- lapply(paste0("package:", bkdPkgs), function(pkg) {
+    content <- ls(pkg)
+    content[grep("MsBackend.+", content)]
+})
+names(pkgContent) <- bkdPkgs
+backendClassNames <- unlist(pkgContent)
+backendClasses <- lapply(backendClassNames, new)
+@
+
+\begin{frame}[fragile]
+
+  \begin{columns}[T]
+
+    \begin{column}{.5\textwidth}
+
+        \begin{block}{Mass Spectrometry (MS) Data}
+            \begin{itemize}
+            \item Paired measurements:
+                \begin{itemize}
+                \item intensity (counts) vs \textit{m/z} (mass-to-charge ratio).
+                \item intensity vs retention time.
+                \end{itemize}
+            \item Additional various metatdata.
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{Problems}
+            \begin{itemize}
+            \item Vendor-specific, closed file formats.
+            \item Various open-formats, e.g. mzML, mzXML, mz5, CDF, MGF, CSV.
+            \item Spectra libraries/Annotation information in databases, e.g.
+                SQL.
+            \item Multiple \R{}-packages require different file formats and/or data structures.
+            \item Larger experiments don't fit into RAM.
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{Solution: \Rpackage{Spectra}\cite{Spectra}}
+            \begin{itemize}
+                \item Common, flexible data structure and interface.
+                \item Supports various file formats by different backends.
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{\Robject{Spectra} class}
+            \begin{itemize}
+                \item Handles one or multiple MS spectra.
+                \item Implements typical processing functionality.
+                \item Isolation from type of data storage (handled by backend classes)
+            \end{itemize}
+        \end{block}
+
+        \begin{block}{\Robject{MsBackend} classes}
+            \begin{itemize}
+                \item Isolation from spectra handling and processing.
+                \item Specific class for each type of data storage.
+            \end{itemize}
+
+<<r backendtable, echo = FALSE, size = "small">>=
+src <- c(
+    MsBackendDataFrame = "manual",
+    MsBackendHdf5Peaks = "hdf5",
+    MsBackendMzR = "mzML, mzXML and CDF",
+    MsBackendHmdbXml = "XML",
+    MsBackendRawFileReader = "Thermo .raw"
+)
+classTbl <- data.frame(
+    class = paste0(backendClassNames,
+        "\\cite{", gsub("[^A-z]", "", names(backendClassNames)), "}"
+    ),
+    "source/files" = src[backendClassNames],
+    storage = ifelse(
+        grepl("DataFrame", backendClassNames), "in-memory", "on-disk"
+    ),
+    writeable = ifelse(!sapply(backendClasses, isReadOnly), "yes", "no")
+)
+
+knitr::kable(classTbl, row.names = FALSE, booktabs = TRUE, escape = FALSE)
+@
+
+        \begin{figure}[ht]
+            \includegraphics[width=0.75\linewidth]{images/Backends_03.png}
+            \caption{The user interacts with a \Robject{Spectra} object. It takes care of the data storage by different backend classes.}
+            \label{fig:backendclasses}
+        \end{figure}
+
+        \end{block}
+    \end{column}
+
+    \begin{column}{.5\textwidth}
+
+        \begin{block}{Example}
+<<r example, size="small">>=
+# Load packages
+library("Spectra")
+library("magrittr")
+
+# Import data
+#sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
+sps <- Spectra()
+
+# Select all MS2 spectra for a [M+Na]+ ion of Fructose.
+
+mzr <- 203.0526
+mzr <- 156.07675 # Histidine
+fruct <- sps %>%
+    filterMsLevel(2) %>%
+    filterPrecursorMz(
+        mz = mzr + ppm(c(-mzr, mzr), 20)
+    )
+
+# Centroid and clean spectra.
+
+fruct <- fruct %>%
+    pickPeaks() %>%
+    removePeaks(threshold = 500) %>%
+    clean(all = TRUE)
+
+# Change backend: load data in memory.
+
+#fruct <- setBackend(fruct, MsBackendDataFrame())
+@
+    \end{block}
+
+    \begin{block}{Contact}
+        \small
+        \begin{itemize}
+            \item \url{https://github.com/rformassspectrometry/Spectra}
+            \item \url{https://rformassspectrometry.org}
+            \item \url{https://twitter.com/search?q=\%23rformassspec}
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{References}
+        \small
+        \bibliographystyle{unsrt}
+        \bibliography{rpackages}
+    \end{block}
+
+    \end{column}
+
+  \end{columns}
+
+  \begin{columns}
+
+    \begin{column}{.7\textwidth}
+
+      \begin{block}{}
+        To use the \Rpackage{Spectra} package install
+        the \textbf{R for Mass Spectrometry} packages and
+          load the core packages:
+
+<<r install, eval = FALSE >>=
+BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
+library("RforMassSpectrometry")
+@
+
+      \end{block}
+    \end{column}
+    \begin{column}{.2\textwidth}
+    \end{column}
+  \end{columns}
+
+  \vfill
+
+
+\end{frame}
+
+\end{document}
