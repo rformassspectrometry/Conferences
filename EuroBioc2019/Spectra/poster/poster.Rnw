@@ -253,6 +253,8 @@ backendClasses <- lapply(backendClassNames, new)
                 \item Specific class for each type of data storage.
             \end{itemize}
 
+        \vspace{5mm}
+
 <<r backendtable, echo = FALSE, size = "small">>=
 src <- c(
     MsBackendDataFrame = "manual",
@@ -274,6 +276,7 @@ classTbl <- data.frame(
 
 knitr::kable(classTbl, row.names = FALSE, booktabs = TRUE, escape = FALSE)
 @
+        \vspace{5mm}
 
         \begin{figure}[ht]
             \includegraphics[width=0.75\linewidth]{images/Backends_03.png}
