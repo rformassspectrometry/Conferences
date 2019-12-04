@@ -32,9 +32,6 @@
 \mode<presentation> {  %% check http://www-i6.informatik.rwth-aachen.de/~dreuw/latexbeamerposter.php for examples
 }
 
-
-%% \setbeamertemplate{bibliography item}[text]
-
 \boldmath
 \usepackage[orientation=portrait,size=a0,scale=1.75,debug]{beamerposter}                        % e.g. for DIN-A0 poster
 %\usepackage[orientation=portrait,size=a1,scale=1.4,grid,debug]{beamerposter}                  % e.g. for DIN-A1 poster, with optional grid and debug output
@@ -45,6 +42,19 @@
 
 %% hide navigation symbols (bottom right)
 \setbeamertemplate{navigation symbols}{}
+
+% remove color from bibliography
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=black}
+\setbeamercolor*{bibliography entry location}{fg=black}
+\setbeamercolor*{bibliography entry note}{fg=black}
+\setbeamercolor*{bibliography item}{fg=black}
+% remove bibliography item symbols
+\setbeamertemplate{bibliography item}[text]
+
+% use circle as bullet points
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
 
 \usepackage{lipsum}
 \usepackage{ragged2e}
