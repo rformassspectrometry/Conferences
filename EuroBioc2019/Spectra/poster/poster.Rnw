@@ -296,9 +296,8 @@ library("magrittr")
 #sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
 sps <- Spectra()
 
-# Select all MS2 spectra for a [M+Na]+ ion of Fructose.
-
-mzr <- 203.0526
+# Select all MS2 spectra for a [M+Na]+ ion of
+# Fructose.
 mzr <- 156.07675 # Histidine
 fruct <- sps %>%
     filterMsLevel(2) %>%
