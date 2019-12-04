@@ -114,6 +114,11 @@
 \definecolor{blue}{rgb}{0.4218750,0.6484375,0.8007812} % #6ca6cd
 \definecolor{green}{rgb}{0.6992188,0.7265625,0.5078125} % #b3ba82
 \definecolor{yellow}{rgb}{0.9570312,0.8671875,0.6992188} % #f5deb3
+\definecolor{hexblue}{HTML}{A9BEE0}
+
+\setbeamercolor*{itemize item}{fg=hexblue}
+\setbeamercolor*{itemize subitem}{fg=hexblue}
+\setbeamercolor*{block title}{fg=hexblue}
 
 \usepackage{hyperref}
 \usepackage{breakurl}
@@ -130,8 +135,8 @@
   colorlinks = {true},
   linktocpage = {true},
   plainpages = {false},
-  linkcolor = {Blue},
-  citecolor = {Blue},
+  linkcolor = {hexblue},
+  citecolor = {hexblue},
   urlcolor = {Red},
   pdfstartview = {Fit},
   pdfpagemode = {UseOutlines},
