@@ -3,7 +3,6 @@
 %\VignetteKeywords{bioinformatics, proteomics, mass spectrometry}
 
 \documentclass[final]{beamer}
-\usepackage{ragged2e}
 \usepackage{wrapfig}
 \usepackage{booktabs}
 
@@ -59,7 +58,6 @@
 \usepackage{lipsum}
 \usepackage{ragged2e}
 \usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
 \usepackage{amsmath,amsthm, amssymb, latexsym}
 \usefonttheme[onlymath]{serif}
 
@@ -164,10 +162,6 @@
     ~
   \end{small}
 }
-
-
-\date[]{~}
-%% \date{}
 
 \begin{document}
 
