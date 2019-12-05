@@ -236,6 +236,7 @@ backendClasses <- lapply(backendClassNames, new)
         \begin{block}{Solution: \Rpackage{Spectra}\cite{Spectra}}
             \begin{itemize}
                 \item Common, flexible data structure and interface.
+                \item Lazy and parallel evaluation.
                 \item Supports various file formats by different backends.
             \end{itemize}
         \end{block}
