@@ -1,8 +1,15 @@
 ---
 title: "Flexible infrastructure for mass spectrometry data"
-author: "Laurent Gatto, <u>Johannes Rainer</u>, Sebastian Gibb<sup>1</sup><br><br>"
-date: "<font size='2'><sup>1</sup>order of authors defined by `sample`
-	with a random seed of `42`</font>"
+author: "Laurent Gatto<sup>1</sup>, <u>Johannes Rainer</u><sup>2</sup>,
+    Sebastian Gibb<sup>3</sup> <sup>*</sup><br><br>"
+date: "<font size='2'>
+    <sup>1</sup>de Duve Institute, UCLouvain, Brussels, Belgium<br>
+    <sup>2</sup>Institute for Biomedicine, Eurac Research, Italy<br>
+    <sup>3</sup>Department of Anaesthesiology and Intensive Care,
+    University Medicine Greifswald, Germany<br>
+    <sup>*</sup>order of authors defined by `sample`
+	with a random seed of `42`
+    </font>"
 output:
   ioslides_presentation:
     logo: images/R4MassSpec-logo.png
@@ -78,6 +85,7 @@ knitr::include_graphics("images/RforMassSpec-00.png")
 ## Mass spectrum {.build}
 
 <div>
+<div>
 ```{r out.width = "500px", echo = FALSE}
 knitr::include_graphics("images/bunch_of_spectra_01.png")
 ```
@@ -87,6 +95,7 @@ knitr::include_graphics("images/bunch_of_spectra_01.png")
   - `numeric` of m/z and of intensity values.
   - additional metadata information.
 - `MSnbase`: `Spectrum` object for a single spectrum.
+</div>
 </div>
 
 ## Mass spectrum
@@ -98,7 +107,6 @@ knitr::include_graphics("images/bunch_of_spectra_02.png")
 ... but usually we deal with many spectra ...
 </div>
 
-
 ## Think bigger: `Spectra`
 
 <div>
@@ -108,7 +116,7 @@ knitr::include_graphics("images/Spectra_01.png")
 </div>
 
 <div style="position:absolute; top:70%;">
-- One object to contain data from one or many spectra.
+- One object to represent data from one or many spectra.
 </div>
 
 ## Think flexible: `MsBackend`
@@ -133,12 +141,12 @@ knitr::include_graphics("images/Backends_04.png")
 
 <div style="position:absolute; top:70%;">
 - Separate user functionality from data handling and storage.
-- Supports different *backends* (remote files, SQL-based, ...).
+- Enables use of different *backends* (remote files, SQL-based, ...).
 </div>
 
 ## Example: data import {.smaller .build}
 
-- Import data from an mzML file.
+- Import data from an *mzML* file.
 
 ```{r, message = FALSE}
 library(Spectra)
@@ -162,8 +170,6 @@ ms2_hist
 
 ## Example: data processing {.smaller .build}
 
-- Centroid and clean spectra.
-
 ```{r, warning = FALSE, message = FALSE}
 ms2_hist <- ms2_hist %>%
     pickPeaks() %>%
@@ -172,14 +178,18 @@ ms2_hist <- ms2_hist %>%
 ms2_hist
 ```
 
+- Data manipulations applied on-the-fly.
+
 ## Example: change backend {.smaller .build}
 
+<div>
 - Change backend: load data into memory.
 
 ```{r, warning = FALSE, message = FALSE}
 ms2_hist <- setBackend(ms2_hist, MsBackendDataFrame())
 ms2_hist
 ```
+</div>
 
 ## Example: new backend {.smaller .build}
 
@@ -202,7 +212,7 @@ hmdb
 ```
 </div>
 
-## Example: compare spectra {.smaller .build}
+## Example: compare spectra {.smaller}
 
 - Match spectrum against database.
 
