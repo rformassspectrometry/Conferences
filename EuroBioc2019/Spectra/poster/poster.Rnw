@@ -308,23 +308,23 @@ sps <- Spectra(
     backend = MsBackendMzR()
 )
 
-# Select all MS2 spectra for a [M+Na]+ ion of
-# Fructose.
+# Select all MS2 spectra for a [M+H]+ ion of
+# Histidine
 mzr <- 156.07675 # Histidine
-fruct <- sps %>%
+his <- sps %>%
     filterMsLevel(2) %>%
     filterPrecursorMz(
         mz = mzr + ppm(c(-mzr, mzr), 20)
     )
 
 # Centroid and clean spectra.
-fruct <- fruct %>%
+his <- fruct %>%
     pickPeaks() %>%
     removePeaks(threshold = 500) %>%
     clean(all = TRUE)
 
 # Change backend: load data in memory.
-fruct <- setBackend(fruct, MsBackendDataFrame())
+his <- setBackend(his, MsBackendDataFrame())
 @
     \end{block}
 
