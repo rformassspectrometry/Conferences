@@ -114,6 +114,11 @@
 \definecolor{blue}{rgb}{0.4218750,0.6484375,0.8007812} % #6ca6cd
 \definecolor{green}{rgb}{0.6992188,0.7265625,0.5078125} % #b3ba82
 \definecolor{yellow}{rgb}{0.9570312,0.8671875,0.6992188} % #f5deb3
+\definecolor{hexblue}{HTML}{A9BEE0}
+
+\setbeamercolor*{itemize item}{fg=hexblue}
+\setbeamercolor*{itemize subitem}{fg=hexblue}
+\setbeamercolor*{block title}{fg=hexblue}
 
 \usepackage{hyperref}
 \usepackage{breakurl}
@@ -130,8 +135,8 @@
   colorlinks = {true},
   linktocpage = {true},
   plainpages = {false},
-  linkcolor = {Blue},
-  citecolor = {Blue},
+  linkcolor = {hexblue},
+  citecolor = {hexblue},
   urlcolor = {Red},
   pdfstartview = {Fit},
   pdfpagemode = {UseOutlines},
@@ -253,6 +258,8 @@ backendClasses <- lapply(backendClassNames, new)
                 \item Specific class for each type of data storage.
             \end{itemize}
 
+        \vspace{5mm}
+
 <<r backendtable, echo = FALSE, size = "small">>=
 src <- c(
     MsBackendDataFrame = "manual",
@@ -274,6 +281,7 @@ classTbl <- data.frame(
 
 knitr::kable(classTbl, row.names = FALSE, booktabs = TRUE, escape = FALSE)
 @
+        \vspace{5mm}
 
         \begin{figure}[ht]
             \includegraphics[width=0.75\linewidth]{images/Backends_03.png}
@@ -293,8 +301,10 @@ library("Spectra")
 library("magrittr")
 
 # Import data
-#sps <- Spectra("data/20191107_Mix2_CE20.mzML", backend = MsBackendMzR())
-sps <- Spectra()
+sps <- Spectra(
+    "20191107_Mix2_CE20.mzML",
+    backend = MsBackendMzR()
+)
 
 # Select all MS2 spectra for a [M+Na]+ ion of
 # Fructose.
@@ -312,7 +322,7 @@ fruct <- fruct %>%
     clean(all = TRUE)
 
 # Change backend: load data in memory.
-#fruct <- setBackend(fruct, MsBackendDataFrame())
+fruct <- setBackend(fruct, MsBackendDataFrame())
 @
     \end{block}
 
@@ -341,21 +351,18 @@ fruct <- fruct %>%
 
   \begin{columns}
 
-    \begin{column}{.1\textwidth}
+    \begin{column}{.05\textwidth}
     \end{column}
 
-    \begin{column}{.8\textwidth}
+    \begin{column}{.9\textwidth}
 
-        To use the \Rpackage{Spectra} package install
-        the \textbf{R for Mass Spectrometry} packages and
-          load the core packages:
+        Install the \Rpackage{Spectra} package using:
 
 <<r install, eval = FALSE >>=
-BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
-library("RforMassSpectrometry")
+BiocManager::install(c("RforMassSpectrometry/MsCoreUtils", "RforMassSpectrometry/Spectra"))
 @
     \end{column}
-    \begin{column}{.1\textwidth}
+    \begin{column}{.05\textwidth}
     \end{column}
   \end{columns}
 
