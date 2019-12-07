@@ -8,7 +8,8 @@ date: "<font size='2'>
     <sup>3</sup>Department of Anaesthesiology and Intensive Care,
     University Medicine Greifswald, Germany<br>
     <sup>*</sup>order of authors defined by `sample`
-	with a random seed of `42`
+	with a random seed of `42`<br>
+    https://doi.org/10.5281/zenodo.3566699
     </font>"
 output:
   ioslides_presentation:
