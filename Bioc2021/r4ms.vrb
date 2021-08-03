@@ -1,0 +1,149 @@
+
+  \begin{columns}[T]
+
+    \begin{column}{.3\textwidth}
+
+      \begin{block}{}
+        \secintro{ \justifying The aim of the \textbf{R for Mass
+            Spectrometry} initiative is to provide efficient,
+          thoroughly documented, tested and flexible R software for
+          the analysis and interpretation of high throughput mass
+          spectrometry assays, including proteomics and metabolomics
+          experiments.}
+      \end{block}
+
+      \begin{block}{}
+        \begin{center}
+          {\large For more details, visit \\
+            \url{RforMassSpectrometry.org}}
+        \end{center}
+
+      \end{block}
+
+      \begin{block}{}
+        \justifying The project formalises the longtime collaborative
+        development efforts of its core members (notably the
+        \Rpackage{mzR}, \Rpackage{MSnbase} and \Rpackage{xcms}
+        packages) under the \textit{RforMassSpectrometry} organisation
+        to facilitate dissemination and accessibility of their work.
+      \end{block}
+
+
+      \begin{block}{}
+        \justifying \textit{RforMassSpectrometry} currently contains a
+        set of core packages (described on the right), that lay out
+        the infrastructure for the \textbf{analysis and interpretation
+          of high throughput mass spectrometry assays}.
+
+      \end{block}
+
+      \vspace{2cm}
+
+      \secintro{
+
+        The project is still at an early stage. \textbf{Contributions}
+        to the initiative are more than welcome, whether under the
+        form of ideas, documentation, code, packages, \ldots \\
+
+        Find details about contribution guidelines and \textbf{code of
+          conduct} on our web page.
+
+      }
+
+    \end{column}
+
+    \begin{column}{.2\textwidth}
+          \begin{figure}
+            \centering
+            \includegraphics[width=1\linewidth]{./figs/pkgs.pdf}
+          \end{figure}
+
+    \end{column}
+
+    \begin{column}{.4\textwidth}
+
+      \begin{block}{}
+        \justifying \bpkg{RforMassSpectrometry} is a meta-package that
+        is used to manage the R for Mass Spectrometry suite of package
+        versions in a coherent way. Users will rely on this package to
+        install and manage the other software.
+      \end{block}
+
+      \vspace{1cm}
+
+      \begin{block}{}
+        \justifying The \bpkg{Spectra} package provides base classes
+        and processing methods for raw mass spectrometry data. It is
+        designed with efficiency, both in terms of memory footprint
+        and processing time in mind, and can manage data in different
+        types of formats.
+      \end{block}
+
+      \vspace{1cm}
+
+      \begin{block}{}
+        \justifying The \bpkg{Chromatograms} package provides base
+        classes and processing methods for chromatographic data. It
+        is designed with efficiency, both in terms of memory footprint
+        and processing time in mind, and can manage data in different
+        types of formats.
+      \end{block}
+
+      \vspace{1cm}
+
+      \begin{block}{}
+        \justifying The \bpkg{QFeatures} package offers the
+        infrastructure to manage and process quantitative features for
+        high-throughput mass spectrometry assays, including proteomics
+        and metabolomics experiments.
+      \end{block}
+
+      \vspace{1cm}
+
+      \begin{block}{}
+        \justifying The \bpkg{MsExperiment} package provides the
+        infrastructure to store and manage all aspects related to a
+        complete proteomics or metabolomics mass spectrometry
+        experiment. It relies on the other RforMassSpectrometry core
+        packages for the data crunching.
+      \end{block}
+
+      \vspace{1cm}
+
+      \begin{block}{}
+        \justifying The \bpkg{MsCoreUtils} package defines low-level
+        functions for mass spectrometry data processing and is
+        independent of any high-level data structures.
+      \end{block}
+
+
+    \end{column}
+
+  \end{columns}
+
+  \begin{columns}
+
+    \begin{column}{.7\textwidth}
+
+      \vspace{2cm}
+
+      \begin{block}{}
+        To install all the \textbf{R for Mass Spectrometry} packages
+        and load the core packages:
+
+        \vspace{5mm}
+
+        \begin{lstlisting}
+          BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
+          library("RforMassSpectrometry")
+        \end{lstlisting}
+
+      \end{block}
+    \end{column}
+    \begin{column}{.2\textwidth}
+    \end{column}
+  \end{columns}
+
+  \vfill
+
+
