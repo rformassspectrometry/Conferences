@@ -164,7 +164,7 @@
 
   \begin{columns}[T]
 
-    \begin{column}{.3\textwidth}
+    \begin{column}{.38\textwidth}
 
       \begin{block}{}
         \secintro{ \justifying The aim of the \textbf{R for Mass
@@ -173,14 +173,6 @@
           the analysis and interpretation of high throughput mass
           spectrometry assays, including proteomics and metabolomics
           experiments.}
-      \end{block}
-
-      \begin{block}{}
-        \begin{center}
-          {\large For more details, visit \\
-            \url{RforMassSpectrometry.org}}
-        \end{center}
-
       \end{block}
 
       \begin{block}{}
@@ -194,9 +186,9 @@
 
       \begin{block}{}
         \justifying \textit{RforMassSpectrometry} currently contains a
-        set of core packages (described on the right), that lay out
-        the infrastructure for the \textbf{analysis and interpretation
-          of high throughput mass spectrometry assays}.
+        set of packages (some are described on the right), that lay
+        out the infrastructure for the \textbf{analysis and
+          interpretation of high throughput mass spectrometry assays}.
 
       \end{block}
 
@@ -204,14 +196,37 @@
 
       \secintro{
 
-        The project is still at an early stage. \textbf{Contributions}
-        to the initiative are more than welcome, whether under the
-        form of ideas, documentation, code, packages, \ldots \\
+        \textbf{Contributions} to the initiative are more than
+        welcome, whether under the form of ideas, documentation, code,
+        packages, \ldots \\
 
         Find details about contribution guidelines and \textbf{code of
           conduct} on our web page.
 
       }
+
+      \begin{block}{}
+        \justifying To learn more about our work at this conference,
+        see
+
+        \begin{itemize}
+
+          \item Christophe Vanderaa's workshop where he demonstrates
+            the \bpkg{QFeatures} (and \bpkg{scp}) packages to process
+            and analyse single-cell proteomics data.
+
+          \item Johannes Rainer's workshop that shows how to use the
+            \bpkg{Spectra} package for seamless processing of raw mass
+            spectrometry data.
+
+          \item Meet us at the \textit{Bioconducor Mass Spectrometry}
+            table in the lounge.
+
+        \end{itemize}
+
+      \end{block}
+
+
 
     \end{column}
 
@@ -223,7 +238,7 @@
 
     \end{column}
 
-    \begin{column}{.4\textwidth}
+    \begin{column}{.35\textwidth}
 
       \begin{block}{}
         \justifying \bpkg{RforMassSpectrometry} is a meta-package that
@@ -284,28 +299,45 @@
 
   \end{columns}
 
-  \begin{columns}
+  %% \begin{columns}
 
-    \begin{column}{.7\textwidth}
+  %%   \begin{column}{.7\textwidth}
 
-      \vspace{2cm}
+  %%     \vspace{2cm}
 
-      \begin{block}{}
-        To install all the \textbf{R for Mass Spectrometry} packages
-        and load the core packages:
+  %%     \begin{block}{}
+  %%       To install all the \textbf{R for Mass Spectrometry} packages
+  %%       and load the core packages:
 
-        \vspace{5mm}
+  %%       \vspace{5mm}
 
-        \begin{lstlisting}
-          BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
-          library("RforMassSpectrometry")
-        \end{lstlisting}
+  %%       \begin{lstlisting}
+  %%         BiocManager::install("RforMassSpectrometry/RforMassSpectrometry")
+  %%         library("RforMassSpectrometry")
+  %%       \end{lstlisting}
 
-      \end{block}
-    \end{column}
-    \begin{column}{.2\textwidth}
-    \end{column}
-  \end{columns}
+  %%     \end{block}
+  %%   \end{column}
+  %%   \begin{column}{.2\textwidth}
+  %%   \end{column}
+  %% \end{columns}
+
+  \vspace{2cm}
+
+  \secintro{
+
+    \begin{block}{}
+      \begin{center}
+        {\Large For more details, visit \\
+          \vspace{2mm}
+          \url{https://RforMassSpectrometry.org} \\
+          \vspace{5mm}
+          \url{https://github.io/RforMassSpectrometry}
+        }
+      \end{center}
+
+    \end{block}
+  }
 
   \vfill
 
