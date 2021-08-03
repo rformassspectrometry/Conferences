@@ -318,7 +318,7 @@ his <- sps %>%
     )
 
 # Centroid and clean spectra.
-his <- fruct %>%
+his <- his %>%
     pickPeaks() %>%
     removePeaks(threshold = 500) %>%
     clean(all = TRUE)

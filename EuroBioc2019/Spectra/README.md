@@ -1,6 +1,9 @@
-# Talk about `Spectra` and backend functionality
+# Talk and Poster about `Spectra` and backend functionality
 
 Laurent Gatto, Johannes Rainer, Sebastian Gibb<sup>1</sup>
+
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3566699.svg)](https://doi.org/10.5281/zenodo.3566699): Slides of the talk.
+- [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3565537.svg)](https://doi.org/10.5281/zenodo.3565537): Poster
 
 ## Title
 
