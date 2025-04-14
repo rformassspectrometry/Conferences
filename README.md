@@ -5,7 +5,7 @@ presenting RforMassSpectrometry topics.
 
 ## 2024
 
-- [An Open Software Development-based Ecosystem of R Packages for Proteomics Data Analysis](https://docs.google.com/presentation/d/1-EjyswOZgrxHMBraiR2skWjm-7nsmNe-/edit?slide=id.p1#slide=id.p1)
+- [An Open Software Development-based Ecosystem of R Packages for Proteomics Data Analysis](https://docs.google.com/presentation/d/1-EjyswOZgrxHMBraiR2skWjm-7nsmNe-/edit?usp=sharing&ouid=103600588885536394602&rtpof=true&sd=true)
 
 ## 2021
 
