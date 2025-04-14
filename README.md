@@ -3,6 +3,10 @@
 This repository lists (some) conference contributions (talks and posters)
 presenting RforMassSpectrometry topics.
 
+## 2024
+
+- [An Open Software Development-based Ecosystem of R Packages for Proteomics Data Analysis](https://docs.google.com/presentation/d/1-EjyswOZgrxHMBraiR2skWjm-7nsmNe-/edit?slide=id.p1#slide=id.p1)
+
 ## 2021
 
 - [QFeatures/scp workshop at
