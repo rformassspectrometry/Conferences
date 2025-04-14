@@ -6,6 +6,9 @@ presenting RforMassSpectrometry topics.
 ## 2024
 
 - [An Open Software Development-based Ecosystem of R Packages for Proteomics Data Analysis](https://docs.google.com/presentation/d/1-EjyswOZgrxHMBraiR2skWjm-7nsmNe-/edit?usp=sharing&ouid=103600588885536394602&rtpof=true&sd=true)
+- [An Open Software Development-based Ecosystem of R Packages for Metabolomics
+  Data
+  Analysis](https://github.com/rformassspectrometry/Conferences/blob/master/EuroBioc2024/RforMassSpectrometry_metabolomics-EuroBioC2024.pdf). [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13347220.svg)](https://doi.org/10.5281/zenodo.13347220)
 
 ## 2021
 
